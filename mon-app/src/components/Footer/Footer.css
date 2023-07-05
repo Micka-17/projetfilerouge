@@ -1,0 +1,21 @@
+footer {
+    background-color: #1C4F9B;
+    color: white;
+}
+
+footer .style-links li a {
+    color: white;
+    text-decoration: none;
+
+}
+
+footer .style-links li a:hover {
+    color: #ffc107;
+
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+}

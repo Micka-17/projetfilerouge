@@ -1,0 +1,35 @@
+# Use root/example as user/password credentials
+version: '3.7'
+
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: projetfilrouge
+
+  # admin:    
+  #   image: adminer    
+  #   ports:      
+  #     - "8080:8080"
+
+  frontend:
+    build: mon-app/.
+    ports:
+      - '3000:3000'
+
+  back-end:
+    build: backend/.
+    ports:
+      - '3001:3001'
+
+  jenkins:
+    build: jenkins/.
+    ports:
+      - '8080:8080'
+      - '50000:50000'
